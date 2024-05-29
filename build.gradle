@@ -53,7 +53,12 @@ application {
 test {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
+
+jacoco {
+        toolVersion = "0.8.7"
+    }
 
 jacocoTestReport {
     reports {
