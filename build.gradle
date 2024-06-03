@@ -10,13 +10,13 @@ version = '1.0'
 
 sonar {
     properties {
-        property('sonar.projectName', 'Example of SonarScanner for Gradle Usage')
-        property("sonar.projectKey", "sonar-scanner-gradle")
-        property("sonar.sources", "src/main")
-        property "sonar.tests", "src/test"
-        property "sonar.host.url", "http://localhost:9000"
-        property "sonar.token", "sqa_6e4c75395d17eb0d0ec0b84c6387ed26208bc305"
-        property "sonar.scm.disabled", "true"
+        property ('sonar.projectName', 'Example of SonarScanner for Gradle Usage')
+        property ("sonar.projectKey", "sonar-scanner-gradle")
+        property ("sonar.sources", "src/main")
+        property ("sonar.tests", "src/test")
+        property ("sonar.host.url", "http://localhost:9000")
+        property ("sonar.token", "sqa_6e4c75395d17eb0d0ec0b84c6387ed26208bc305")
+        property ("sonar.scm.disabled", "true")
     }
 }
 
@@ -53,25 +53,11 @@ application {
 test {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
-    finalizedBy jacocoTestReport
 }
-
-jacoco {
-        toolVersion = "0.8.7"
-    }
 
 jacocoTestReport {
     reports {
         xml.required = true
         html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-    }
-}
-
-// subproject block
-subprojects {
-    sonar {
-        properties {
-            property "sonar.sources", "src"
-        }
     }
 }
