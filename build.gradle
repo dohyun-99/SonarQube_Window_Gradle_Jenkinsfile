@@ -35,6 +35,9 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
     implementation 'org.junit.jupiter:junit-jupiter:5.9.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    //logback-classic warning
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
