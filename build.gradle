@@ -14,8 +14,6 @@ sonar {
         property ("sonar.projectKey", "sonar-scanner-gradle")
         property ("sonar.sources", "src/main")
         property ("sonar.tests", "src/test")
-        property ("sonar.host.url", "http://localhost:9000")
-        property ("sonar.token", "sqa_6e4c75395d17eb0d0ec0b84c6387ed26208bc305")
         property ("sonar.scm.disabled", "true")
     }
 }
