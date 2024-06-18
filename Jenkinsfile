@@ -35,16 +35,6 @@ pipeline {
                 }
             }
         }
-        
-        stage('Deploy Artifacts') {
-            steps {
-                // 배포할 파일이나 디렉토리를 지정
-                def artifactsDir = "build/libs"
-                
-                // Jenkins의 workspace 내에서 해당 디렉토리를 찾아 복사
-                sh "cp -r ${artifactsDir} ${env.WORKSPACE}"
-            }
-        }
     }
     
     post {
