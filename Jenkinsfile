@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     // Gradle을 사용하여 프로젝트 빌드 및 Jacoco 테스트 보고서 생성
-                    sh "gradlew.bat clean build jacocoTestReport -Dsonar.host.url=${sonarHostUrl} -Dsonar.login=${sonarToken}"
+                    sh "./gradlew clean build jacocoTestReport -Dsonar.host.url=${sonarHostUrl} -Dsonar.token=${sonarToken}"
                 }
             }
         }
