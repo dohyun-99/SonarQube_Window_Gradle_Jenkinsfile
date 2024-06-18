@@ -9,7 +9,7 @@ pipeline {
         projectName = 'CI with Jenkins'
         projectKey = 'gradle-ci-test'
         sonarHostUrl = 'http://localhost:9000' // SonarQube 서버 URL
-        sonarToken = credentials('sonar-token') // Jenkins에 설정된 SonarQube 토큰 Credential ID
+        sonarToken = credentials('sqa_00d9b9fa998785d777c14bb9e8e2772312230a92') // Jenkins에 설정된 SonarQube 토큰 Credential ID
     }
     
     stages {
