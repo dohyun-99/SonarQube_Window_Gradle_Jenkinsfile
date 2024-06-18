@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        GRADLE_HOME = tool 'Gradle'
+        GRADLE_HOME = "C://Gradle//gradle-8.8"
         PATH = "${GRADLE_HOME}/bin:${env.PATH}"
         
         projectName = 'CI with Jenkins'
