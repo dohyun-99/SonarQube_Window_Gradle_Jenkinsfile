@@ -2,14 +2,13 @@ pipeline {
     agent any
     
     environment {
-        GRADLE_HOME = tool 'Gradle' // Jenkins에서 설정한 Gradle 도구
+        GRADLE_HOME = tool 'Gradle'
         PATH = "${GRADLE_HOME}/bin:${env.PATH}"
         
-        // 본인 프로젝트 및 설정
         projectName = 'CI with Jenkins'
         projectKey = 'gradle-ci-test'
-        sonarHostUrl = 'http://localhost:9000' // SonarQube 서버 URL
-        sonarToken = credentials('sqa_00d9b9fa998785d777c14bb9e8e2772312230a92') // Jenkins에 설정된 SonarQube 토큰 Credential ID
+        sonarHostUrl = 'http://localhost:9000'
+        sonarToken = credentials('SonarQubeToken')
     }
     
     stages {
@@ -18,11 +17,12 @@ pipeline {
                 checkout scm
             }
         }
+        
         stage('Build & Test') {
             steps {
                 script {
                     // Gradle을 사용하여 프로젝트 빌드 및 Jacoco 테스트 보고서 생성
-                    sh "gradlew.bat clean build jacocoTestReport -Dsonar.host.url=${sonarHostUrl} -Dsonar.token=${sonarToken}"
+                    sh "gradlew.bat clean build jacocoTestReport -Dsonar.host.url=${sonarHostUrl} -Dsonar.login=${sonarToken}"
                 }
             }
         }
@@ -46,11 +46,3 @@ pipeline {
         }
     }
 }
-
-
-def getTag(branchName){     
-    def TAG
-    def DATETIME_TAG = new Date().format('yyyyMMddHHmmss')
-    TAG = "${DATETIME_TAG}"
-    return TAG
-}  
